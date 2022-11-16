@@ -1,0 +1,88 @@
+<div class="projects-view-details-project__wrapper" *ngIf="selectProject; else templateNoSelectProject">
+    <div class="projects-view-details-project__static" *ngIf="!showEdit">
+        <h2>{{selectProject?.subject}}</h2>
+        <div class="projects-view-details-project__date_and_author">
+            <div class="start-date">
+                <span class="start-date__header">Дата начала</span>
+                <span>{{selectProject?.startDate | transformDate}}</span>
+            </div>
+            <div class="end-date">
+                <span class="end-date__header">Дата конца</span>
+                <span>{{selectProject?.endDate | transformDate}}</span>
+            </div>
+            <div class="author">
+                <span class="author__header">Автор</span>
+                <span>{{selectProject?.createdBy}}</span>
+            </div>
+        </div>
+        <div class="projects-view-details-project__description">
+            <span class="projects-view-details-project__description__header">Описание</span>
+            <span>
+                {{selectProject?.description}}
+            </span>
+        </div>
+        <button   
+            class="projects-view-details-project__edit-button"  
+            mat-raised-button
+            color="primary"
+            (click)="showEdit = !showEdit"
+        >
+            Изменить
+        </button>
+    </div>
+    <div class="projects-view-details-project__form" *ngIf="showEdit">
+        <form [formGroup]="projectForm" >
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Название</mat-label>
+                <input matInput placeholder="Проект" formControlName="subject" >
+                <mat-error *ngIf="controls.subject.invalid">{{ getSubjectErrorMessage() }}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Choose a Start date</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="startDate">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="controls.startDate.invalid">{{ getStartDateErrorMessage() }}</mat-error>  
+            </mat-form-field>
+            <small *ngIf="!isRangeDateCorrect">Дата начала не может быть больше даты окончания</small>    
+
+            <mat-form-field appearance="fill">
+                <mat-label>Choose a End date</mat-label>
+                <input matInput [matDatepicker]="picker1" formControlName="endDate">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+                <mat-error *ngIf="controls.endDate.invalid">{{ getStartDateErrorMessage() }}</mat-error>  
+                <mat-error *ngIf="!isRangeDateCorrect">Дата начала не может быть больше даты окончания</mat-error>    
+            </mat-form-field>
+            <small *ngIf="!isRangeDateCorrect">Дата начала не может быть больше даты окончания</small>    
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Автор</mat-label>
+                <input matInput placeholder="Иван Иванов" formControlName="createdBy">
+                <mat-error *ngIf="controls.createdBy.invalid">{{ getCreatedByErrorMessage() }}</mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Описание</mat-label>
+                <input matInput placeholder="Проект...."  formControlName="description">
+                <mat-error *ngIf="controls.description.invalid">{{ getDescriptionErrorMessage() }}</mat-error>
+            </mat-form-field>
+        </form>
+        <button   
+            [disabled]="saveEditProject || projectForm.invalid || !isRangeDateCorrect"
+            class="projects-view-details-project__edit-button"  
+            mat-raised-button
+            color="primary"
+            (click)="editProject()"
+        >
+            Сохранить
+        </button>
+    </div>
+</div>
+
+<ng-template  #templateNoSelectProject>
+    <div class="no-project">
+      Проекта с таким ID не существует, пожалуйста, выберите существующий проект.
+    </div>
+</ng-template>

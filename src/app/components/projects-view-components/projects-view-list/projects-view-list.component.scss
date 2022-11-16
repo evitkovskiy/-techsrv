@@ -1,0 +1,15 @@
+.example-card {
+    width: 300px;
+    max-width: 400px;
+    margin-bottom: 8px;
+    cursor: pointer;
+
+    mat-card-subtitle,
+    mat-card-title {
+        text-align: left;
+    }
+
+    mat-card-content {
+        text-align: right;
+    }
+}

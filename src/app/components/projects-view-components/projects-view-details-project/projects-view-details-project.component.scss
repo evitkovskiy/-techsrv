@@ -1,0 +1,61 @@
+@import '../../../../styles/variables.scss';
+
+.projects-view-details-project__wrapper {
+    position: relative;
+    height: 100%;
+    margin-left: 40px;
+}
+
+.projects-view-details-project__date_and_author {
+    display: flex;
+    justify-content: space-between;
+}
+
+.start-date, .end-date, .author, .projects-view-details-project__description {
+
+    span {
+        display: block;
+        text-align: left;
+    }
+
+    span:nth-child(even) {
+        margin-top: 10px;
+    }
+
+    &__header {
+        font-size: 20px;
+        color: $clr-white;
+    }
+}
+
+.projects-view-details-project__description {
+    margin-top: 20px;
+}
+
+.projects-view-details-project__edit-button {
+    margin-top: 20px;
+}
+
+.projects-view-details-project__form {
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+small {
+    text-align: left;
+    color: $clr-light-red;
+}
+
+.no-project {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 79%;
+    font-size: 24px;
+    background-color: #e1e1e1;
+    border-radius: 5px;
+    color: $clr-white;
+    margin-left: 20px;
+}

@@ -1,0 +1,16 @@
+<div class="projects-view__wrapper">
+    <ng-container *ngIf="projects">
+        <techsrv-projects-view-list
+        [projects]="projects"
+        (selectedProjects)="selectedProjects($event)"
+    ></techsrv-projects-view-list>
+    <techsrv-projects-view-details-project
+        [projects]="projects"
+        [selectProject]="selectProject"
+        (updateProjects)="updateProjects()"
+    ></techsrv-projects-view-details-project>
+    </ng-container>
+    <div class="project-view__no-projects" *ngIf="!projects">
+        <h2>Пожалуйста, добавьте данные</h2>
+    </div>
+</div>

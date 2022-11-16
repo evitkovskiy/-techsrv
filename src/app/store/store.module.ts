@@ -8,7 +8,7 @@ import { ProjectsEffects } from './projects/effects';
 const APP_EFFECTS = [ProjectsEffects];
 
 const APP_REDUCERS = {
-  auth: projectsReducer,
+  projects: projectsReducer,
 };
 
 @NgModule({

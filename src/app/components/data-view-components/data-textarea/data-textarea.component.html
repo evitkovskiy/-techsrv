@@ -1,0 +1,29 @@
+<div class="data-textarea__wrapper">
+    <form [formGroup]="dataForm">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Вставьте/Загрузите данные</mat-label>
+            <textarea 
+                matInput 
+                placeholder="Ex. It makes me feel..." 
+                formControlName="projectsJson"
+                ></textarea>
+            <mat-error *ngIf="controls.projectsJson.invalid">{{ getDataErrorMessage() }}</mat-error>
+        </mat-form-field>
+    </form>
+
+    <div class="data-textarea__buttons">
+        <button 
+            [disabled]="dataForm.invalid"
+            mat-raised-button color="primary"
+            (click)="onSaveProjects()"
+        >
+           Сохранить
+        </button>
+        <button   
+            [disabled]="dataForm.valid"  
+            mat-raised-button 
+            (click)="onLoadProjects()" 
+            color="primary"
+        >Загрузить из сервера</button>
+    </div>
+</div>

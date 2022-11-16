@@ -6,18 +6,18 @@ export const projectsReducer = createReducer(
   initialState,
   on(projectsActions.loadProjects, (state) => ({
     ...state,
-    customersLoading: true,
-    customersLoaded: false,
+    projectsLoading: true,
+    projectsLoaded: false,
   })),
   on(projectsActions.loadProjectsFailed, (state) => ({
     ...state,
-    customersLoading: false,
-    customersLoaded: false,
+    projectsLoading: false,
+    projectsLoaded: false,
   })),
   on(projectsActions.loadProjectsSuccess, (state, { payload }) => ({
     ...state,
-    ...payload,
-    customersLoading: false,
-    customersLoaded: true,
+    projects: payload,
+    projectsLoading: false,
+    projectsLoaded: true,
   })),
   );

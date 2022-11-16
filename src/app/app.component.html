@@ -1,4 +1,7 @@
-
-      <a class="tab" routerLink="/data" routerLinkActive="active">Данные</a>
-      <a class="tab" routerLink="/projects" routerLinkActive="active">Проекты</a>
-<router-outlet></router-outlet>
+<div class="main-col">
+     <div class="main-col__menu"> 
+      <techsrv-header-view></techsrv-header-view>
+      </div>
+      <app-preloader></app-preloader>
+      <router-outlet></router-outlet>
+</div>

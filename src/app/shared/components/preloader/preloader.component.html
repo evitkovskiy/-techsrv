@@ -1,0 +1,11 @@
+<mat-progress-bar *ngIf="isVisible && isMinified" mode="indeterminate"></mat-progress-bar>
+<div class="preloader" *ngIf="isVisible && !isMinified">
+  <mat-spinner></mat-spinner>
+  <button *ngIf="showCancelButton"
+          class="preloader-button"
+          color="primary"
+          mat-raised-button
+          (click)="hideSpinner()">
+    Cancel
+  </button>
+</div>

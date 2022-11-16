@@ -1,0 +1,37 @@
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  margin: 0;
+  padding: 0;
+  z-index: 1001;
+
+  .preloader-button,
+  .mat-progress-spinner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+  }
+
+  .mat-progress-spinner {
+    margin: -50px 0 0 -50px;
+  }
+
+  .preloader-button {
+    width: 100px;
+    margin: 70px 0 0 -50px;
+  }
+}
+
+.mat-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+}

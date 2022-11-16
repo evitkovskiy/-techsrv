@@ -1,0 +1,15 @@
+.main-col {
+    width: 1000px;
+    text-align: center;
+    &__menu {
+        display: flex;
+        justify-content: space-around;
+    }
+}
+
+techsrv-header-view {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}    

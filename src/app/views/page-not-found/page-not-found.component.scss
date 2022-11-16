@@ -1,0 +1,29 @@
+@import "../../../styles/variables";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.error {
+  color: $clr-light-red;
+  font-size: 38px;
+  padding-bottom: 10px;
+}
+
+.title,
+.description {
+  color: $clr-blue;
+  padding-bottom: 10px;
+}
+
+.title {
+  font-size: 28px;
+}
+
+.description {
+  font-size: 18px;
+}

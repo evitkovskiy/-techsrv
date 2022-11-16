@@ -1,9 +1,13 @@
+export interface IProjects {
+	Projects: IProject[]
+}
+
 export interface IProject {
-    id: 1;
+    id: string;
 	subject: string;
 	description: string;
-	createdBy: Date;
-	startDate: Date;
+	createdBy: string;
+	startDate: string;
 	endDate: string;
 	cost: number;
-  }
+}

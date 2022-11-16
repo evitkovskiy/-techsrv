@@ -1,24 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PageNotFoundComponent } from './views/page-not-found/page-not-found.component';
 
 export const routes: Routes = [
   {
     path: 'data',
-    loadChildren: () => import('./pages/data/data.module').then((m) => m.DataModule),
+    loadChildren: () => import('./views/data-view/data-view.module').then((m) => m.DataViewModule),
   },
   {
-    path: 'projects',
-    loadChildren: () => import('./pages/projects/projects.module').then((m) => m.ProjectsModule),
+    path: 'projects/:id',
+    loadChildren: () => import('./views/projects-view/projects-view.module').then((m) => m.ProjectsViewModule),
   },
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: '/data',
+    redirectTo: '/data'
   },
-  // {
-  //   path: '**',
-  //   component: PageNotFoundComponent,
-  // },
+  {
+    path: '**',
+    component: PageNotFoundComponent
+  },
 ];
 
 @NgModule({
